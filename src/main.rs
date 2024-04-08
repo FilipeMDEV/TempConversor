@@ -1,8 +1,18 @@
-fn resolve_equation(a: i32, b: i32, c: i32) -> (String, i32) {
-  // TODO: terminar de escrever
-  return (String::new("oao"), 2)
+fn fahrenheit_to_celsius(fahrenheit: String) -> f64 {
+  let fahrenheit: f64 = fahrenheit.trim().parse().expect("Deve ser um número");
+  let celsius = (fahrenheit-32 as f64)/(1.8);
+  celsius
 }
 
-fn main () {
-    println!("Calculadora de equação do segundo grau:")
+fn celsius_to_fahrenheit(celsius: String) -> f64 {
+  let celsius: f64 = celsius.trim().parse().expect("Deve ser um número");
+  let fahrenheit = 1.8*celsius+32 as f64;
+  fahrenheit
+}
+
+fn main() {
+  println!("Digite um número:");
+  let mut num = String::new();
+  std::io::stdin().read_line(&mut num).expect("nao deu pra ler num");
+  println!("Aqui ó: {}", celsius_to_fahrenheit(num));
 }
